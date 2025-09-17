@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED := 300.0
 
+const BULLET = preload("res://scene/bullet.tscn")
+
 
 
 func _physics_process(delta: float) -> void:
@@ -20,3 +22,11 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack"):
+		var bullet := BULLET.instantiate()
+		bullet.global_position = global_position
+		get_parent().add_child(bullet)
+		
