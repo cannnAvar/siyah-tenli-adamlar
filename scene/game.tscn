@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=4 uid="uid://dwp8mcruqd5ol"]
+
+[ext_resource type="PackedScene" uid="uid://c7e6nju1ketw8" path="res://scene/player.tscn" id="1_5kiuu"]
+[ext_resource type="Texture2D" uid="uid://3ud0h44xggk5" path="res://icon.svg" id="2_dbls1"]
+[ext_resource type="PackedScene" uid="uid://dcbhupsp0x2xj" path="res://scene/kutu.tscn" id="3_33cqm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33cqm"]
+texture = ExtResource("2_dbls1")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_5kiuu"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_33cqm")
+
+[node name="Game" type="Node"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_5kiuu")]
+position = Vector2(625, 316)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAALAAIAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAADAAYAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_5kiuu")
+
+[node name="Kutu" parent="." instance=ExtResource("3_33cqm")]
+position = Vector2(-248, 332)
