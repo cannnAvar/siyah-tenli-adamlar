@@ -28,7 +28,3 @@ tile_set = SubResource("TileSet_5kiuu")
 
 [node name="Kutu" parent="." instance=ExtResource("3_33cqm")]
 position = Vector2(-248, 332)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(394, -131)
-texture = ExtResource("2_dbls1")
